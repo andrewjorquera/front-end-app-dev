@@ -14,6 +14,12 @@
     margin-bottom: 15px;
     font-size: 175%;
   }
+
+  .category {
+    float: left;
+    text-align: left;
+    font-family: 'Times New Roman', Times, serif;
+  }
   
   /* Simple Responsive Framework. */
   .row {
@@ -93,6 +99,9 @@
     .col-lg-12 {
       width: 100%;
     }
+    .category {
+      display:none;
+    }
   }
   
   /********** Medium devices only **********/
@@ -136,6 +145,9 @@
     .col-md-12 {
       width: 100%;
     }
+    .category {
+      display:none;
+    }
   }
 
   /********** Small devices only **********/
@@ -178,5 +190,12 @@
     }
     .col-sm-12 {
       width: 100%;
+    }
+    .title {
+      width: 100%;
+      left:auto;
+    }
+    .menu {
+      display:none;
     }
   }
