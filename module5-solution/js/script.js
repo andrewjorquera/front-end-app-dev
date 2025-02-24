@@ -22,7 +22,7 @@ var menuItemsUrl =
   "https://coursera-jhu-default-rtdb.firebaseio.com/menu_items/";
 var menuItemsTitleHtml = "snippets/menu-items-title.html";
 var menuItemHtml = "snippets/menu-item.html";
-var aboutHtml = "snippets/about.html"
+var aboutHtmlUrl = "snippets/about.html"
 
 // Convenience function for inserting innerHTML for 'select'
 var insertHtml = function (selector, html) {
@@ -166,7 +166,7 @@ dc.loadAbout = function () {
 function buildAndShowAboutHTML () {
   // Load title snippet of categories page
   $ajaxUtils.sendGetRequest(
-    aboutHtml,
+    aboutHtmlUrl,
     function (aboutHtml) {
       var stars = getStarValue();
 
