@@ -145,6 +145,30 @@ dc.loadMenuCategories = function () {
     buildAndShowCategoriesHTML);
 };
 
+// Builds HTML for the categories page based on the data
+// from the server
+function buildAndShowCategoriesHTML (categories) {
+  // Load title snippet of categories page
+  $ajaxUtils.sendGetRequest(
+    categoriesTitleHtml,
+    function (categoriesTitleHtml) {
+      // Retrieve single category snippet
+      $ajaxUtils.sendGetRequest(
+        categoryHtml,
+        function (categoryHtml) {
+          // Switch CSS class active to menu button
+          switchMenuToActive();
+
+          var categoriesViewHtml =
+            buildCategoriesViewHtml(categories,
+                                    categoriesTitleHtml,
+                                    categoryHtml);
+          insertHtml("#main-content", categoriesViewHtml);
+        },
+        false);
+      },
+      false);
+}
 
 // Load the menu items view
 // 'categoryShort' is a short_name for a category
