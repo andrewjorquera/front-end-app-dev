@@ -170,20 +170,22 @@ function buildAndShowAboutHTML () {
     function (aboutHtml) {
       var stars = getStarValue();
 
+      var insertedAboutHtml = aboutHtml;
+
       var i = 1;
       while (i <= stars) {
-        insertProperty(aboutHtml, "class" + i, "fa fa-star");
+        insertedAboutHtml = insertProperty(insertedAboutHtml, "class" + i, "fa fa-star");
         i++;
       }
       while (i <= 5) {
-        insertProperty(aboutHtml, "class" + i, "fa fa-star-o");
+        insertedAboutHtml = insertProperty(insertedAboutHtml, "class" + i, "fa fa-star-o");
         i++;
       }
 
-      insertProperty(aboutHtml, "star_rating", stars + "-star rating");
+      insertedAboutHtml = insertProperty(insertedAboutHtml, "star_rating", stars + "-star rating");
 
       // insert about view into main content
-      insertHtml("#main-content", aboutHtml);
+      insertHtml("#main-content", insertedAboutHtml);
     },
     false);
 }
