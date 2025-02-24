@@ -22,6 +22,7 @@ var menuItemsUrl =
   "https://coursera-jhu-default-rtdb.firebaseio.com/menu_items/";
 var menuItemsTitleHtml = "snippets/menu-items-title.html";
 var menuItemHtml = "snippets/menu-item.html";
+var aboutHtml = "snippets/about.html"
 
 // Convenience function for inserting innerHTML for 'select'
 var insertHtml = function (selector, html) {
@@ -154,28 +155,27 @@ dc.loadMenuItems = function (categoryShort) {
     buildAndShowMenuItemsHTML);
 };
 
+// Load the about view
+dc.loadAbout = function () {
+  showLoading("#main-content");
+  buildAndShowAboutHTML();
+};
 
-// Builds HTML for the categories page based on the data
-// from the server
-function buildAndShowCategoriesHTML (categories) {
+
+// Builds HTML for the about page
+function buildAndShowAboutHTML () {
   // Load title snippet of categories page
   $ajaxUtils.sendGetRequest(
-    categoriesTitleHtml,
-    function (categoriesTitleHtml) {
-      // Retrieve single category snippet
-      $ajaxUtils.sendGetRequest(
-        categoryHtml,
-        function (categoryHtml) {
-          // Switch CSS class active to menu button
-          switchMenuToActive();
+    aboutHtml,
+    function (aboutHtml) {
+      insertProperty(aboutHtml, "class1", "test");
+      insertProperty(aboutHtml, "class2", "test");
+      insertProperty(aboutHtml, "class3", "test");
+      insertProperty(aboutHtml, "class4", "test");
+      insertProperty(aboutHtml, "class5", "test");
 
-          var categoriesViewHtml =
-            buildCategoriesViewHtml(categories,
-                                    categoriesTitleHtml,
-                                    categoryHtml);
-          insertHtml("#main-content", categoriesViewHtml);
-        },
-        false);
+      // insert about view into main content
+      insertHtml("#main-content", aboutHtml);
     },
     false);
 }
