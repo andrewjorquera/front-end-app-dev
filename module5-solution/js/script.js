@@ -168,16 +168,28 @@ function buildAndShowAboutHTML () {
   $ajaxUtils.sendGetRequest(
     aboutHtml,
     function (aboutHtml) {
-      insertProperty(aboutHtml, "class1", "test");
-      insertProperty(aboutHtml, "class2", "test");
-      insertProperty(aboutHtml, "class3", "test");
-      insertProperty(aboutHtml, "class4", "test");
-      insertProperty(aboutHtml, "class5", "test");
+      var stars = getStarValue();
+
+      var i = 1;
+      while (i <= stars) {
+        insertProperty(aboutHtml, "class" + i, "fa fa-star");
+        i++;
+      }
+      while (i <= 5) {
+        insertProperty(aboutHtml, "class" + i, "fa fa-star-o");
+        i++;
+      }
+
+      insertProperty(aboutHtml, "star_rating", stars + "-star rating");
 
       // insert about view into main content
       insertHtml("#main-content", aboutHtml);
     },
     false);
+}
+
+function getStarValue() {
+  return Math.floor(Math.random() * 5 + 1);
 }
 
 
