@@ -93,7 +93,7 @@ $ajaxUtils.sendGetRequest(
 // Builds HTML for the home page based on categories array
 // returned from the server.
 function buildAndShowHomeHTML (categories) {
-  
+
   // Load home snippet page
   $ajaxUtils.sendGetRequest(
     homeHtmlUrl,
@@ -145,6 +145,17 @@ dc.loadMenuCategories = function () {
     buildAndShowCategoriesHTML);
 };
 
+
+// Load the menu items view
+// 'categoryShort' is a short_name for a category
+dc.loadMenuItems = function (categoryShort) {
+  showLoading("#main-content");
+  $ajaxUtils.sendGetRequest(
+    menuItemsUrl + categoryShort + ".json",
+    buildAndShowMenuItemsHTML);
+};
+
+
 // Builds HTML for the categories page based on the data
 // from the server
 function buildAndShowCategoriesHTML (categories) {
@@ -169,15 +180,6 @@ function buildAndShowCategoriesHTML (categories) {
       },
       false);
 }
-
-// Load the menu items view
-// 'categoryShort' is a short_name for a category
-dc.loadMenuItems = function (categoryShort) {
-  showLoading("#main-content");
-  $ajaxUtils.sendGetRequest(
-    menuItemsUrl + categoryShort + ".json",
-    buildAndShowMenuItemsHTML);
-};
 
 // Load the about view
 dc.loadAbout = function () {
