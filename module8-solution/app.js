@@ -15,6 +15,7 @@
 
         // Call narrow it down service with button
         narrow.narrowItDown = function (term) {
+            console.log(MenuSearchService.getMatchedMenuItems(term));
             narrow.found = MenuSearchService.getMatchedMenuItems(term);
             console.log(narrow.found);
         };
@@ -77,7 +78,7 @@
             },
             controller: NarrowItDownController,
             bindToController: true,
-            controllerAs: 'narrow'
+            controllerAs: 'dir-narrow'
         };
 
         return ddo;
