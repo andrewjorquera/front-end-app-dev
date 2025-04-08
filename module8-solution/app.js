@@ -15,11 +15,12 @@
 
         // Call narrow it down service with button
         narrow.narrowItDown = function (term) {
-            MenuSearchService.getMatchedMenuItems(term).then(function(result) {
-                console.log(result);
-                console.log(result.data)
-                narrow.found = result.data;
-            })
+            var promise = MenuSearchService.getMatchedMenuItems(term);
+            promise.then(function(response) {
+                narrow.found = response.data;
+            }).catch(function(error) {
+                console.error(error);
+            });
         };
 
         narrow.removeItem = function (index) {
