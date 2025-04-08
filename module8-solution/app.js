@@ -6,8 +6,8 @@
     .service('MenuSearchService', MenuSearchService)
     .directive('foundItems', FoundItems);
     
-    NarrowItDownController.$inject = ['MenuSearchService'];
-    function NarrowItDownController(MenuSearchService) {
+    NarrowItDownController.$inject = ['MenuSearchService', $scope];
+    function NarrowItDownController(MenuSearchService, $scope) {
         var narrow = this;
 
         // Initialize found items array
@@ -29,6 +29,8 @@
                 } else {
                     narrow.empty = true;
                 }
+
+                $scope.$apply();
             }).catch(function(error) {
                 console.error("Error occurred:", error);
             });
@@ -42,6 +44,8 @@
             } else {
                 narrow.empty = true;
             }
+
+            $scope.$apply();
         }
     };
 
