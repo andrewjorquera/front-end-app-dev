@@ -16,10 +16,10 @@
         // Call narrow it down service with button
         narrow.narrowItDown = function (term) {
             var promise = MenuSearchService.getMatchedMenuItems(term);
-            promise.then(function(response) {
-                narrow.found = response.data;
+            promise.then(function(foundItems) {
+                narrow.found = foundItems;
             }).catch(function(error) {
-                console.error(error);
+                console.error("Error occurred:", error);
             });
         };
 
