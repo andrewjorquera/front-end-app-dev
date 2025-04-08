@@ -16,7 +16,7 @@
         // Call narrow it down service with button
         narrow.narrowItDown = function (term) {
             console.log(MenuSearchService.getMatchedMenuItems(term));
-            narrow.found = MenuSearchService.getMatchedMenuItems(term);
+            narrow.found = MenuSearchService.getMatchedMenuItems(term).value;
             console.log(narrow.found);
         };
 
