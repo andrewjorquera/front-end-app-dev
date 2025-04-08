@@ -4,6 +4,7 @@
     angular.module('NarrowItDownApp', [])
     .controller('NarrowItDownController', NarrowItDownController)
     .service('MenuSearchService', MenuSearchService)
+    .directive('foundItems', FoundItems);
     
     NarrowItDownController.$inject = ['MenuSearchService'];
     function NarrowItDownController(MenuSearchService) {
@@ -16,6 +17,10 @@
         narrow.narrowItDown = function (term) {
             narrow.found = MenuSearchService.getMatchedMenuItems(term);
         };
+
+        narrow.removeItem = function (index) {
+            narrow.found.slice(index, 1);
+        }
     };
 
     MenuSearchService.$inject = ['$http'];
@@ -31,6 +36,11 @@
                 // Initialize filtered items
                 var foundItems = [];
 
+                // Exit if search term is empty
+                if (searchTerm = "") {
+                    return foundItems;
+                }
+
                 // Get all results
                 var allItems = result.data;
 
@@ -45,18 +55,29 @@
 
                         // If name includes search term, add to found items
                         if (itemName.toLowerCase().includes(searchTerm.toLowerCase())) {
-                            foundItems.push(itemName);
+                            foundItems.push(menuItems[item]);
                         }
                     }
                 }
 
-                console.log(foundItems);
+                console.log(foundItems[0]);
 
                 //Return found items
                 return foundItems;
             });
             
         }
+    };
+
+    function FoundItems() {
+        var ddo = {
+            templateUrl: 'foundItems.html',
+            scope: {
+                foundItems: '=foundItems'
+            },
+        };
+
+        return ddo;
     };
     
 })();
