@@ -42,7 +42,7 @@
                 var foundItems = [];
 
                 // Exit if search term is empty
-                if (searchTerm === "") {
+                if (searchTerm === "" || searchTerm === undefined) {
                     return foundItems;
                 }
 
