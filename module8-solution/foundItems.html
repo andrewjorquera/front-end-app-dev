@@ -1,4 +1,4 @@
-<table ng-if="narrow.items">
+<table ng-show="narrow.empty">
   <tr>
     <th>Name</th>
     <th>Short Name</th>
@@ -16,3 +16,5 @@
     </th>
   </tr>
 </table>
+
+<p ng-hide="narrow.empty">Nothing found</p>

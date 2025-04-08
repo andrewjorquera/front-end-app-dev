@@ -13,11 +13,22 @@
         // Initialize found items array
         narrow.found = [];
 
+        // Initialize if found is empty
+        narrow.empty = true;
+
         // Call narrow it down service with button
         narrow.narrowItDown = function (term) {
             var promise = MenuSearchService.getMatchedMenuItems(term);
             promise.then(function(foundItems) {
+                // Set found array
                 narrow.found = foundItems;
+                
+                // Set message if empty
+                if (narrow.found.length > 0) {
+                    narrow.empty = false;
+                } else {
+                    narrow.empty = true;
+                }
             }).catch(function(error) {
                 console.error("Error occurred:", error);
             });
