@@ -81,7 +81,7 @@
             },
             controller: NarrowItDownController,
             bindToController: true,
-            controllerAs: 'dir-narrow'
+            controllerAs: 'narrow'
         };
 
         return ddo;
