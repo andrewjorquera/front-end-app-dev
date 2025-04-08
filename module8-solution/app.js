@@ -72,7 +72,7 @@
             templateUrl: 'foundItems.html',
             scope: {
                 foundItems: '=foundItems',
-                onRemove: '@onRemove'
+                onRemove: '&onRemove'
             }
         };
 

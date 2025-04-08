@@ -1,3 +1,4 @@
+<br>
 <table>
   <tr>
     <th>Name</th>
@@ -10,7 +11,7 @@
     <th>{{ item.short_name }}</th>
     <th>{{ item.description }}</th>
     <th>
-      <button class="btn btn-default" ng-click="onRemove">
+      <button class="btn btn-default" ng-click="onRemove($index)">
         <span class="glyphicon glyphicon-remove"></span> Don't want this one!
       </button>
     </th>
