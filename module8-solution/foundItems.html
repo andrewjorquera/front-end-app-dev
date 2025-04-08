@@ -1,16 +1,16 @@
-<table ng-if="items">
+<table ng-if="narrow.foundItems">
   <tr>
     <th>Name</th>
     <th>Short Name</th>
     <th>Description</th>
     <th></th>
   </tr>
-  <tr ng-repeat="item in items">
+  <tr ng-repeat="item in narrow.foundItems">
     <th>{{ item.name }}</th>
     <th>{{ item.short_name }}</th>
     <th>{{ item.description }}</th>
     <th>
-      <button class="btn btn-default" ng-click="onRemove({index: $index})">
+      <button class="btn btn-default" ng-click="narrow.onRemove({index: $index})">
         <span class="glyphicon glyphicon-remove"></span> Don't want this one!
       </button>
     </th>
