@@ -1,11 +1,11 @@
-<table ng-if="narrow.foundItems">
+<table ng-if="narrow.items">
   <tr>
     <th>Name</th>
     <th>Short Name</th>
     <th>Description</th>
     <th></th>
   </tr>
-  <tr ng-repeat="item in narrow.foundItems">
+  <tr ng-repeat="item in narrow.items">
     <th>{{ item.name }}</th>
     <th>{{ item.short_name }}</th>
     <th>{{ item.description }}</th>
