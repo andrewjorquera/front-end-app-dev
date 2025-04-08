@@ -73,8 +73,9 @@
         var ddo = {
             templateUrl: 'foundItems.html',
             scope: {
-                foundItems: '=foundItems'
-            },
+                foundItems: '=foundItems',
+                onRemove: '@onRemove'
+            }
         };
 
         return ddo;

@@ -3,10 +3,16 @@
     <th>Name</th>
     <th>Short Name</th>
     <th>Description</th>
+    <th></th>
   </tr>
   <tr ng-repeat="item in foundItems">
     <th>{{ item.name }}</th>
     <th>{{ item.short_name }}</th>
     <th>{{ item.description }}</th>
+    <th>
+      <button class="btn btn-default" ng-click="onRemove">
+        <span class="glyphicon glyphicon-remove"></span> Don't want this one!
+      </button>
+    </th>
   </tr>
 </table>
