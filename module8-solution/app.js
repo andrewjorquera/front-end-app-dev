@@ -19,7 +19,7 @@
         };
 
         narrow.removeItem = function (index) {
-            narrow.found.slice(index, 1);
+            narrow.found.splice(index, 1);
         }
     };
 
@@ -37,7 +37,7 @@
                 var foundItems = [];
 
                 // Exit if search term is empty
-                if (searchTerm = "") {
+                if (searchTerm === "") {
                     return foundItems;
                 }
 
