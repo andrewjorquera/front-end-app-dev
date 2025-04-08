@@ -1,4 +1,4 @@
-<table ng-show="narrow.empty">
+<table ng-hide="narrow.empty">
   <tr>
     <th>Name</th>
     <th>Short Name</th>
@@ -17,4 +17,4 @@
   </tr>
 </table>
 
-<p ng-hide="narrow.empty">Nothing found</p>
+<p ng-show="narrow.empty">Nothing found</p>

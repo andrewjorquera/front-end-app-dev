@@ -36,6 +36,12 @@
 
         narrow.removeItem = function (index) {
             narrow.found.splice(index, 1);
+            // Set message if empty
+            if (narrow.found.length > 0) {
+                narrow.empty = false;
+            } else {
+                narrow.empty = true;
+            }
         }
     };
 
