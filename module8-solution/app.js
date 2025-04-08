@@ -60,8 +60,6 @@
                     }
                 }
 
-                console.log(foundItems[0]);
-
                 //Return found items
                 return foundItems;
             });
