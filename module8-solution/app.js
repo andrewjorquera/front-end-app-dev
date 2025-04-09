@@ -23,12 +23,15 @@
                 // Set found array
                 narrow.found = foundItems;
                 
+                console.log(narrow.found.length);
                 // Set message if empty
                 if (narrow.found.length > 0) {
                     narrow.empty = false;
                 } else {
                     narrow.empty = true;
                 }
+
+                console.log(narrow.empty);
             }).catch(function(error) {
                 console.error("Error occurred:", error);
             });
