@@ -6,15 +6,12 @@
     .service('MenuSearchService', MenuSearchService)
     .directive('foundItems', FoundItems);
     
-    NarrowItDownController.$inject = ['MenuSearchService', '$scope'];
-    function NarrowItDownController(MenuSearchService, $scope) {
+    NarrowItDownController.$inject = ['MenuSearchService'];
+    function NarrowItDownController(MenuSearchService) {
         var narrow = this;
 
         // Initialize found items array
         narrow.found = [];
-
-        // Initialize if found is empty
-        narrow.empty = true;
 
         // Call narrow it down service with button
         narrow.narrowItDown = function (term) {
@@ -22,16 +19,6 @@
             promise.then(function(foundItems) {
                 // Set found array
                 narrow.found = foundItems;
-                
-                console.log(narrow.found.length);
-                // Set message if empty
-                if (narrow.found.length > 0) {
-                    narrow.empty = false;
-                } else {
-                    narrow.empty = true;
-                }
-
-                console.log(narrow.empty);
             }).catch(function(error) {
                 console.error("Error occurred:", error);
             });
@@ -39,12 +26,6 @@
 
         narrow.removeItem = function (index) {
             narrow.found.splice(index, 1);
-            // Set message if empty
-            if (narrow.found.length > 0) {
-                narrow.empty = false;
-            } else {
-                narrow.empty = true;
-            }
         }
     };
 
