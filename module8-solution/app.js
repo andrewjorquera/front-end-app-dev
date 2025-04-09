@@ -29,8 +29,6 @@
                 } else {
                     narrow.empty = true;
                 }
-
-                $scope.$apply();
             }).catch(function(error) {
                 console.error("Error occurred:", error);
             });
@@ -44,8 +42,6 @@
             } else {
                 narrow.empty = true;
             }
-
-            $scope.$apply();
         }
     };
 
