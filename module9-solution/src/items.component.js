@@ -14,21 +14,10 @@
 
     ItemsComponentController.$inject = ['items'];
     function ItemsComponentController(items) {
-        var items = this;
+        var $ctrl = this;
 
-        // Initialize found items array
-        items.allItems = [];
-
-        // Call get items with button
-        items.getItems = function (categoryShortName) {
-            var promise = MenuDataService.getItemsForCategory(categoryShortName);
-            promise.then(function(foundItems) {
-                // Set items array
-                items.allItems = foundItems;
-            }).catch(function(error) {
-                console.error("Error occurred:", error);
-            });
-        };
+        // Initialize items
+        $ctrl.items = items;
     };
     
 })();

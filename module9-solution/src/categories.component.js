@@ -16,6 +16,8 @@
     function CategoriesComponentController(categories) {
         var $ctrl = this;
 
+        console.log(categories);
+
         // Initialize categories
         $ctrl.categories = categories;
     };
