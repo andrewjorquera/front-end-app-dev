@@ -12,23 +12,12 @@
         }
     });
 
-    CategoriesComponentController.$inject = ['MenuDataService'];
-    function CategoriesComponentController(MenuDataService) {
-        var categories = this;
+    CategoriesComponentController.$inject = ['categories'];
+    function CategoriesComponentController(categories) {
+        var $ctrl = this;
 
-        // Initialize categories array
-        categories.allCategories = [];
-
-        // Call get all categories with button
-        categories.getCategories = function () {
-            var promise = MenuDataService.getAllCategories();
-            promise.then(function(allCategories) {
-                // Set categories array
-                categories.allCategories = allCategories;
-            }).catch(function(error) {
-                console.error("Error occurred:", error);
-            });
-        };
+        // Initialize categories
+        $ctrl.categories = categories;
     };
     
 })();

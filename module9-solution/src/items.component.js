@@ -12,8 +12,8 @@
         }
     });
 
-    ItemsComponentController.$inject = ['MenuDataService'];
-    function ItemsComponentController(MenuDataService) {
+    ItemsComponentController.$inject = ['items'];
+    function ItemsComponentController(items) {
         var items = this;
 
         // Initialize found items array
