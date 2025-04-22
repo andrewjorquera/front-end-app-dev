@@ -13,10 +13,11 @@
     function CategoriesComponentController() {
         var $ctrl = this;
 
-        console.log("Ctrl:");
-        console.log($ctrl);
-        console.log("Categories:");
-        console.log($ctrl.categories);
+        $ctrl.onInit = function() {
+            console.log("Ctrl:");
+            console.log($ctrl);
+            console.log("Categories:");
+            console.log($ctrl.categories);
+        }
     }
-    
 })();
