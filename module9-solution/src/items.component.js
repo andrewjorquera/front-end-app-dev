@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('MenuApp')
-    .component('itemsComponent', {
+    .component('items', {
         templateUrl: 'items.component.html',
         controller: ItemsComponentController,
         bindings: {

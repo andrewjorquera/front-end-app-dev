@@ -16,7 +16,7 @@
 
             .state('categories', {
                 url: '/categories',
-                template: '<categories/>',
+                template: '<categories></categories>',
                 resolve: {
                     categories: ['MenuDataService', function (MenuDataService) {
                         return MenuDataService.getAllCategories();
@@ -27,7 +27,6 @@
             .state('items', {
                 url: '/items/{category}',
                 templateUrl: 'src/items.component.html',
-                controller: 'ItemsComponentController as items',
                 resolve: {
                     items: ['$stateParams', 'MenuDataService', function ($stateParams, MenuDataService) {
                         return MenuDataService.getAllCategories().then(function (categories) {

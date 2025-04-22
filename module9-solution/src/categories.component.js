@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('MenuApp')
-    .component('categoriesComponent', {
+    .component('categories', {
         templateUrl: 'categories.component.html',
         controller: CategoriesComponentController
     });
