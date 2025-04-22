@@ -1,6 +1,6 @@
 <h1>Categories</h1>
 <ul>
-  <li ng-repeat="category in categories">Category: {{category}}
+  <li ng-repeat="category in $ctrl.categories">Category: {{category}}
     <a ui-sref="items({category:category})">Items for {{category}}</a>
   </li>
 </ul>
