@@ -20,14 +20,13 @@
                 //Return all categories
                 return allCategories;
             });
-            
         }
 
         // HTTP call to get menu items
         data.getItemsForCategory = function(categoryShortName) {
             return $http({
                 method: "GET",
-                url: "https://coursera-jhu-default-rtdb.firebaseio.com/menu_items/{categoryShortName}.json",
+                url: `https://coursera-jhu-default-rtdb.firebaseio.com/menu_items/${categoryShortName}.json`,
             }).then(function (result) {
                 // Get items for given category
                 var allItems = result.data;
@@ -35,7 +34,6 @@
                 //Return items
                 return allItems;
             });
-            
         }
     };
     

@@ -1,2 +1,11 @@
 <h1>Items</h1>
-<items></items>
+<ul>
+  <h3>{{$ctrl.items.category.name}}</h3>
+  <li ng-repeat="item in $ctrl.items.menu_items">
+    <p>{{item.name}}</p>
+    <ul>
+      <li>{{item.description}}</li>
+      <li>{{item.price_large}}</li>
+    </ul>
+  </li>
+</ul>

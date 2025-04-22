@@ -16,7 +16,8 @@
 
             .state('categories', {
                 url: '/categories',
-                template: '<categories categories="categories"></categories>',
+                template: '<categories categories="$resolve.categories"></categories>',
+                controller: 'CategoriesController',
                 resolve: {
                     categories: ['MenuDataService', function (MenuDataService) {
                         return MenuDataService.getAllCategories();
@@ -26,11 +27,13 @@
             
             .state('items', {
                 url: '/items/{category}',
-                templateUrl: 'src/items.component.html',
+                template: '<items items="$resolve.items"></items>',
+                controller: 'ItemsController',
                 resolve: {
                     items: ['$stateParams', 'MenuDataService', function ($stateParams, MenuDataService) {
                         return MenuDataService.getAllCategories().then(function (categories) {
-                            return categories[$stateParams.category];
+                            var category = categories.find(e => e.short_name == $stateParams.category);
+                            return MenuDataService.getItemsForCategory(category.short_name);
                         });
                     }]
                 }
