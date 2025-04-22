@@ -3,19 +3,15 @@
 
     angular.module('MenuApp')
     .component('categoriesComponent', {
-        templateUrl: 'categories.component.html',
-        controller: CategoriesComponentController,
-        bindings: {
-            prop1: '<',
-            prop2: '@',
-            onAction: '&'
-        }
+        templateUrl: 'categories.component.html'
     });
 
     CategoriesComponentController.$inject = ['categories'];
     function CategoriesComponentController(categories) {
         var $ctrl = this;
 
+
+        console.log($ctrl);
         console.log(categories);
 
         // Initialize categories

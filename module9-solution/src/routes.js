@@ -26,10 +26,13 @@
             })
             
             .state('items', {
-                url: '/items',
+                url: '/items/{category}',
                 templateUrl: 'src/items.component.html',
                 controller: 'ItemsComponentController as items',
                 resolve: {
+                    items2: ['$stateParams', function ($stateParams) {
+                        return MenuDataService.getItemsForCategory($stateParams.category);
+                    }],
                     items: ['MenuDataService', function (MenuDataService) {
                         return MenuDataService.getItemsForCategory(category);
                     }]

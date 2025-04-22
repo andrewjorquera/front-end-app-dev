@@ -1,5 +1,7 @@
 <h1>Categories</h1>
-
+{{$ctrl}}
 <ul>
-  <li ng-repeat="category in $ctrl.categories">Buy {{category.name}}</li>
+  <li ng-repeat="category in $ctrl.categories">Buy {{category.name}}
+    <a ui-sref="items({category:category})">Items for {{category}}</a>
+  </li>
 </ul>
