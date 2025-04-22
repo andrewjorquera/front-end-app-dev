@@ -16,8 +16,7 @@
 
             .state('categories', {
                 url: '/categories',
-                templateUrl: 'src/categories.component.html',
-                controller: 'CategoriesComponentController as categories',
+                template: '<categories/>',
                 resolve: {
                     categories: ['MenuDataService', function (MenuDataService) {
                         return MenuDataService.getAllCategories();
@@ -30,11 +29,10 @@
                 templateUrl: 'src/items.component.html',
                 controller: 'ItemsComponentController as items',
                 resolve: {
-                    items2: ['$stateParams', function ($stateParams) {
-                        return MenuDataService.getItemsForCategory($stateParams.category);
-                    }],
-                    items: ['MenuDataService', function (MenuDataService) {
-                        return MenuDataService.getItemsForCategory(category);
+                    items: ['$stateParams', 'MenuDataService', function ($stateParams, MenuDataService) {
+                        return MenuDataService.getAllCategories().then(function (categories) {
+                            return categories[$stateParams.category];
+                        });
                     }]
                 }
             });

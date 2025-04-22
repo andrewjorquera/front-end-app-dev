@@ -3,7 +3,8 @@
 
     angular.module('MenuApp')
     .component('categoriesComponent', {
-        templateUrl: 'categories.component.html'
+        templateUrl: 'categories.component.html',
+        controller: CategoriesComponentController
     });
 
     CategoriesComponentController.$inject = ['categories'];
