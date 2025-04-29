@@ -1,0 +1,15 @@
+<h2>My Info</h2>
+
+<h1>{{myinfoCtrl.info.firstName}}</h1>
+<div ng-if="myinfoCtrl.info.registered">
+  <p>User Information:</p>
+  <p>{{myinfoCtrl}}</p>
+  <p>{{myinfoCtrl.info.firstName}}</p>
+  <p>{{myinfoCtrl.info.lastName}}</p>
+  <p>{{myinfoCtrl.info.email}}</p>
+  <p>{{myinfoCtrl.info.phoneNumber}}</p>
+  <p>{{myinfoCtrl.info.favoriteDish}}</p>
+  <menu-item menu-item="myinfoCtrl.item" category-short-name="myinfoCtrl.category"/>
+</div>
+
+<span ng-if="!myinfoCtrl.info.registered">Not signed Up Yet. <a ui-sref="public.signup">Sign up Now!</a></span>
