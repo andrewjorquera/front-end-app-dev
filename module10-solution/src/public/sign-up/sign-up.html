@@ -38,12 +38,13 @@
     <label for="favoriteDish">Favorite Dish (Menu Number)</label>
     <input type="text" name="favoriteDish" class="form-control"
       ng-model="signupCtrl.favoriteDish"
+      valid-dish
       required>
     <span ng-if="signUp.favoriteDish.$error.required && signUp.favoriteDish.$touched">Please enter a dish menu number.</span>
-    <span ng-if="signupCtrl.dishError">No such menu number exists.</span>
+    <span ng-if="signUp.favoriteDish.$error.validDish && signUp.favoriteDish.$touched">No such menu number exists.</span>
   </div>
 
-  <button class="btn btn-primary" ng-click="signupCtrl.submit()">Submit</button>
+  <button class="btn btn-primary" ng-disabled="signUp.$invalid" ng-click="signupCtrl.submit()">Submit</button>
   <br>
 
   <span ng-if="signupCtrl.completed">Your information has been saved.</span>

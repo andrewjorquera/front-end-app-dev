@@ -4,8 +4,8 @@
 angular.module('public')
 .controller('MyInfoController', MyInfoController);
 
-MyInfoController.$inject = ['MyInfoService', '$scope'];
-function MyInfoController(MyInfoService, $scope) {
+MyInfoController.$inject = ['MyInfoService'];
+function MyInfoController(MyInfoService) {
   var myinfoCtrl = this;
 
   myinfoCtrl.$onInit = function () {
