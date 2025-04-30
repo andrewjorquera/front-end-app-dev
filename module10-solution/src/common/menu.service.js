@@ -23,7 +23,7 @@ function MenuService($http, ApiPath) {
   };
 
   service.getMenuItem = function (category, number) {
-    return $http.get(ApiPath + '/menu_items/' + category + '/menu_items/' + number + '.json').then(function (response) {
+    return $http.get(ApiPath + '/menu_items/' + category + '/menu_items/' + (Number(number)-1).toString() + '.json').then(function (response) {
       return response.data;
     });
   }
